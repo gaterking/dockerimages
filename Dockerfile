@@ -15,7 +15,7 @@ WORKDIR /tmp
 #更新yum源
 RUN yum install -y wget
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
-    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/epel-7.repo
+    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/epel-7.repo &&\
     yum clean all && \
     yum makecache && \
     yum update -y
