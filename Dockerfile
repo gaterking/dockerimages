@@ -13,7 +13,7 @@ ENV JRE_VERSION 1.8.0 \
 
 WORKDIR /tmp
 #更新yum源
-RUN yum install wget
+RUN yum install -y wget
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
     wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/epel-7.repo
     yum clean all && \
