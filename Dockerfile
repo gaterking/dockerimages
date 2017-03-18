@@ -19,7 +19,9 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backu
     yum clean all && \
     yum makecache && \
     yum update -y
-
+#安装ssh
+RUN yum install openssh-server -y
+    
 #安装jre8
 #RUN yum install java-$JRE_VERSION-openjdk.x86_64
 
