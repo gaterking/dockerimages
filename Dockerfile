@@ -20,9 +20,10 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backu
     yum makecache && \
     yum update -y
 #安装openssh
-RUN yum install openssh openssh-server openssh-clients openssl-libs -y && \
-    chkconfig --list sshd && \
-    /etc/init.d/sshd start
+RUN yum install openssh openssh-server openssh-clients openssl-libs -y 
+#&& \
+    #vim /lib/systemd/system/sshd.service && \
+    #/etc/init.d/sshd start
 
 #安装jre8
 #RUN yum install java-$JRE_VERSION-openjdk.x86_64
