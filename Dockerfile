@@ -21,7 +21,7 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backu
     yum update -y
 
 #安装jre8
-RUN yum install java-$JRE_VERSION-openjdk.x86_64
+#RUN yum install java-$JRE_VERSION-openjdk.x86_64
 
 #安装zookeeper
 #RUN yum install zookeeper zookeeper-server
