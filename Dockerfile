@@ -1,18 +1,19 @@
 FROM centos:latest
 MAINTAINER seasons.li
 
-ENV JRE_VERSION=1.8.0 \
-    ZOO_USER=zookeeper \
-    ZOO_CONF_DIR=/conf \
-    ZOO_DATA_DIR=/data \
-    ZOO_DATA_LOG_DIR=/datalog \
-    ZOO_PORT=2181 \
-    ZOO_TICK_TIME=2000 \
-    ZOO_INIT_LIMIT=5 \
+ENV JRE_VERSION=1.8.0 && \
+    ZOO_USER=zookeeper && \
+    ZOO_CONF_DIR=/conf && \
+    ZOO_DATA_DIR=/data && \
+    ZOO_DATA_LOG_DIR=/datalog && \
+    ZOO_PORT=2181 && \
+    ZOO_TICK_TIME=2000 && \
+    ZOO_INIT_LIMIT=5 && \
     ZOO_SYNC_LIMIT=2
 
 WORKDIR /tmp
 #更新yum源
+RUN yum install wget
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
     wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/epel-7.repo
     yum clean all && \
