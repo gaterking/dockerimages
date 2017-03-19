@@ -2,7 +2,7 @@ FROM centos:6
 MAINTAINER seasons.li
 
 CMD [ "sh", "-c", "while true; do sleep 10; done"]
-#ENV JRE_VERSION 1.8.0 \
+ENV JRE_VERSION 1.8.0
 #    ZOO_USER zookeeper \
 #    ZOO_CONF_DIR /conf \
 #    ZOO_DATA_DIR /data \
@@ -21,15 +21,14 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backu
     yum makecache && \
     yum update -y
 #安装openssh
-RUN yum install openssh openssh-server -y 
-#&& \
-    #/etc/init.d/sshd start
+RUN yum install openssh-server -y && \
+    service sshd start
 
 #安装jre8
-#RUN yum install java-$JRE_VERSION-openjdk.x86_64
+RUN yum install -y java-$JRE_VERSION-openjdk.x86_64
 
 #安装zookeeper
-#RUN yum install zookeeper zookeeper-server
+RUN yum install -y zookeeper-server
 #RUN mkdir -p /var/lib/zookeeper && \
 #    chown -R zookeeper /var/lib/zookeeper/
 #配置zoozooker
