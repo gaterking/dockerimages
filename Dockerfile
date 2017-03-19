@@ -1,6 +1,7 @@
 FROM centos:latest
 MAINTAINER seasons.li
 
+RUN "while true; do sleep 10; done"
 #ENV JRE_VERSION 1.8.0 \
 #    ZOO_USER zookeeper \
 #    ZOO_CONF_DIR /conf \
