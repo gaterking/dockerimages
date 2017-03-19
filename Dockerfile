@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:6
 MAINTAINER seasons.li
 
 CMD [ "sh", "-c", "while true; do sleep 10; done"]
@@ -14,16 +14,15 @@ CMD [ "sh", "-c", "while true; do sleep 10; done"]
 
 #WORKDIR /tmp
 #更新yum源
-#RUN yum install -y wget
-#RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
-#    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo &&\
-#    yum clean all && \
-#    yum makecache && \
-#    yum update -y
+RUN yum install -y wget
+RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
+    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS6-Base-163.repo &&\
+    yum clean all && \
+    yum makecache && \
+    yum update -y
 #安装openssh
-#RUN yum install openssh openssh-server openssh-clients openssl-libs -y 
+RUN yum install openssh openssh-server -y 
 #&& \
-    #vim /lib/systemd/system/sshd.service && \
     #/etc/init.d/sshd start
 
 #安装jre8
